@@ -1,0 +1,10 @@
+# mysql
+docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=titi -d mysql
+
+# ajouter le port 3306 sur some-mysql manuellement avant de continuer.
+
+# phpmyadmin
+docker run --name myadmin -d -e PMA_HOST=192.168.99.100:3306 -p 8081:80 phpmyadmin/phpmyadmin
+
+# drupal
+docker run --name some-drupal --link some-mysql:mysql -d drupal
